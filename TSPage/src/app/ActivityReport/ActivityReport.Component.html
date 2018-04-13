@@ -1,0 +1,21 @@
+﻿<div class="jumbotron" style="margin-top:10%">
+    <button (click)='downloadExcelFile()' class="btn btn-primary pull-right">Download Report</button>
+    <h2> <span class="label label-primary">Chronical</span></h2>
+    <table class="table table-striped">
+        <thead class="bg-primary"><tr><td>ResourceCode</td><td>ResourceName</td><td>ResourceEmailId</td><td>ProjectName</td><td>TaskType</td><td>Hours Spent</td><td>Activity Date</td></tr></thead>
+        <tbody>
+            <tr *ngFor="let item of AReportInfo">
+                <td>{{item.ResourceCode}}</td>
+                <td>{{item.ResourceName}}</td>
+                <td>{{item.ResourceEmailId}}</td>
+                <td>{{item.ProjectName}}</td>
+                <td>{{item.TaskType}}</td>
+                <td>{{item.NoOfHoursSpent}}</td>
+                <td>{{item.ActivityDate}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<br />
+

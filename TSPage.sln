@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSPage", "TSPage\TSPage.csproj", "{389B5963-4E78-42E4-8CA5-A06831350DF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSWebApi", "..\TS\TSWebApi\TSWebApi.csproj", "{7E0045D3-6DD0-482F-9919-5DEB56006F79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{389B5963-4E78-42E4-8CA5-A06831350DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{389B5963-4E78-42E4-8CA5-A06831350DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{389B5963-4E78-42E4-8CA5-A06831350DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{389B5963-4E78-42E4-8CA5-A06831350DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E0045D3-6DD0-482F-9919-5DEB56006F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E0045D3-6DD0-482F-9919-5DEB56006F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E0045D3-6DD0-482F-9919-5DEB56006F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E0045D3-6DD0-482F-9919-5DEB56006F79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

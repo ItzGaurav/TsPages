@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <style>
+        .margin1 {
+            margin: .01px;
+        }
+    </style>
+
+</head>
+<body>
+    <span class="glyphicon glyphicon-refresh glyphicon-spin spinner" *ngIf="loading"></span>
+    <div class="container">
+
+        <form class="form-horizontal" (ngSubmit)="saveActivities()" [formGroup]="tsFormGroup">
+
+            <!--<div class="form-group" [ngClass]="{'has-error':(tsFormGroup.get('firstName').touched || tsFormGroup.get('firstName').dirty)}">
+
+                <label class="col-md-2 control-label" for="firstNameId">Name</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="firstNameId" type="text" formControlName="firstName" />
+                    <div *ngIf="tsFormGroup.get('firstName').dirty && tsFormGroup.get('firstName').invalid" class="alert alert-danger">First Name is reruired. </div>
+                </div>
+            </div>-->
+
+
+            <div formArrayName="newActivityControl">
+                <div *ngFor="let newRow of NewActivity.controls; let i=index" class="panel panel-default">
+                    <div class="panel-heading">
+                        <span>Activity {{i + 1}}</span>
+                        <span class="glyphicon glyphicon-remove pull-right" *ngIf="NewActivity.controls.length > 1" (click)="removeActivity(i)"></span>
+                    </div>
+
+                    <div class="panel-body" [formGroupName]="i">
+
+                        <div class="form-group col-xs-3 margin1">
+                            <select required class="form-control" id="{{i}}" formControlName="ProjectId" (change)="projectDDChanged(i)">
+                                <option value="0" disabled selected>Select Project (required)...</option>
+                                <ng-container *ngFor="let c of projects;">
+                                    <option [ngValue]="c.ProjectId">{{c.ProjectName}}</option>
+                                </ng-container>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group col-xs-3 margin1">
+
+                            <select required class="form-control" id="{{i}}" formControlName="TaskId">
+                                <option value="0" disabled selected>Select Task (required)...</option>
+                                <ng-container *ngFor="let c of tasklist[i];">
+                                    <option [ngValue]="c.TaskId">{{c.TaskType}}</option>
+                                </ng-container>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group col-xs-3 margin1">
+                            <input type="date"
+                                   class="form-control"
+                                   id="{{'Issue' + i}}"
+                                   placeholder="Activity Date (required)"
+                                   formControlName="ActivityDate">
+                        </div>
+
+                        <div class="form-group col-xs-3 margin1">
+                            <input type="number"
+                                   class="form-control" required
+                                   id="{{'Houres' + i}}"
+                                   placeholder="Hours Spent (required)"
+                                   formControlName="HoursSpent">
+
+                            <!--<div *ngIf="tsFormGroup.get('Houres').dirty && tsFormGroup.get('Houres').invalid" class="alert alert-danger">Please fill all  reruired fields. </div>-->
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="margin-20">
+                <a (click)="addNewRow()" style="cursor: default">
+                    Add another activity +
+                </a>
+            </div>
+
+            <div class="margin-20">
+                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+            </div>
+        </form>
+
+
+        <div class="jumbotron" style="margin-top:10%">
+            <h2> <span class="label label-primary">Chronical</span></h2>
+            <table class="table table-striped">
+                <thead class="bg-primary"><tr><td>Activity Id</td><td>Project</td><td>Task</td><td>Hours Spent</td><td>Activity Date</td></tr></thead>
+                <tbody>
+                    <tr *ngFor="let item of data">
+                        <td>{{item.ActivityId}}</td>
+                        <td>{{item.ProjectName}}</td>
+                        <td>{{item.TaskType}}</td>
+                        <td>{{item.NoOfHoursSpent}}</td>
+                        <td>{{item.ActivityDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+</body>
+</html>
